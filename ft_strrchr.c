@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/09 17:10:49 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/11 17:17:33 by jinglee          ###   ########.fr       */
+/*   Created: 2021/01/12 17:36:18 by jinglee           #+#    #+#             */
+/*   Updated: 2021/01/14 17:42:29 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "libft.h"
 
-int ft_memcmp(const void *pt1, const void *pt2, size_t len)
+char	*ft_strrchr(const char *str, int c)
 {
-	unsigned char *p1;
-	unsigned char *p2;
+	char *p;
 
-	p1 = (unsigned char *)pt1;
-	p2 = (unsigned char *)pt2;
-	while (len--)
+	p = NULL;  // *str == 0 인경우 return 할 p가 할당되지 않고 리턴되는 것을 방지
+	while(1)
 	{
-		if (*p1 != *p2)
-			return (*p1 - *p2);
-		p1++;
-		p2++;
+		if (*str == (char)c)   // str == null 인 경우 여기서 segfault (*str)
+			p = (char *)str;
+		if (*str == '\0')
+			return (p);
+		str++;
 	}
-	return (0);
 }
+

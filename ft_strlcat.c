@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/09 17:10:49 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/11 17:17:33 by jinglee          ###   ########.fr       */
+/*   Created: 2021/01/16 14:43:18 by jinglee           #+#    #+#             */
+/*   Updated: 2021/01/16 16:47:34 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "libft.h"
 
-int ft_memcmp(const void *pt1, const void *pt2, size_t len)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned char *p1;
-	unsigned char *p2;
+	size_t dst_len;
+	size_t src_len;
 
-	p1 = (unsigned char *)pt1;
-	p2 = (unsigned char *)pt2;
-	while (len--)
-	{
-		if (*p1 != *p2)
-			return (*p1 - *p2);
-		p1++;
-		p2++;
-	}
-	return (0);
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+
+	if (size < dst_len)
+		return (src_len + size);
+
+	if (size == dst_len)
+		return (src_len + dst_len);
+
+	else
+		ft_memcpy(dst + dst_len, src, size - dst_len - 1);
+
+	return (dst_len + src_len);
 }

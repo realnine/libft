@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/09 17:10:49 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/11 17:17:33 by jinglee          ###   ########.fr       */
+/*   Created: 2021/01/16 16:47:54 by jinglee           #+#    #+#             */
+/*   Updated: 2021/01/18 15:45:06 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "libft.h"
 
-int ft_memcmp(const void *pt1, const void *pt2, size_t len)
+char		*ft_strnstr(const char *src, const char *word, size_t ran)
 {
-	unsigned char *p1;
-	unsigned char *p2;
+	size_t 	word_len;
+	int 	res;
 
-	p1 = (unsigned char *)pt1;
-	p2 = (unsigned char *)pt2;
-	while (len--)
-	{
-		if (*p1 != *p2)
-			return (*p1 - *p2);
-		p1++;
-		p2++;
+	word_len = ft_strlen(word);
+	if (*word  != '\0')
+	{	
+		if (ran == 0)
+			return (NULL);
+		while (1)
+		{
+			res = ft_strncmp(src, word, word_len);
+			if (res == 0)
+				break;
+			if (*++src == '\0')
+				return (NULL);
+			if (--ran < word_len)
+				return (NULL);
+		}
 	}
-	return (0);
+	return ((char *)src);
 }
