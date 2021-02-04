@@ -6,31 +6,31 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:05:56 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/09 17:09:01 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/04 12:00:16 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char *d;
-	const unsigned char *s;
+	unsigned char		*d;
+	const unsigned char	*s;
 
 	d = dst;
 	s = src;
-	if (dst == NULL && src == NULL)
+	if (!dst || !src)
 		return (NULL);
 	if (dst <= src)
-	{	
-		while(len--)
+	{
+		while (len--)
 			*d++ = *s++;
 	}
 	if (dst > src)
 	{
 		d += len;
 		s += len;
-		while(len--)
+		while (len--)
 			*--d = *--s;
 	}
 	return (dst);

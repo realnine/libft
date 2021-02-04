@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/16 16:47:54 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/25 19:06:56 by jinglee          ###   ########.fr       */
+/*   Created: 2021/02/03 20:24:01 by jinglee           #+#    #+#             */
+/*   Updated: 2021/02/04 11:44:43 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
-char		*ft_strnstr(const char *src, const char *word, size_t ran)
+void	ft_recursive(int n, int fd, char *decimal)
 {
-	size_t 	word_len;
-	int 	res;
+	if (n > 9 || n < -9)
+		ft_recursive(n / 10, fd, decimal);
+	if (n >= 0)
+		write(fd, &decimal[n % 10], 1);
+	else if (n < 0)
+		write(fd, &decimal[-(n % 10)], 1);
+}
 
-	word_len = ft_strlen(word);
-	if (*word  != '\0')
-	{	
-		if (ran == 0)
-			return (NULL);
-		while (1)
-		{
-			res = ft_strncmp(src, word, word_len);
-			if (res == 0)
-				break;
-			else if(*++src == '\0' || --ran < word_len)
-				return (NULL);
-		}
-	}
-	return ((char *)src);
+void	ft_putnbr_fd(int n, int fd)
+{
+	char *decimal;
+
+	decimal = "0123456789";
+	if (n < 0)
+		write(fd, "-", 1);
+	ft_recursive(n, fd, decimal);
 }

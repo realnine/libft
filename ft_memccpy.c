@@ -6,7 +6,7 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 13:04:43 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/15 20:56:00 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/04 11:56:16 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t len)
 {
-	unsigned char *d;
-	unsigned char *s;
-	unsigned char *pt;
-	size_t num_c;
+	unsigned char	*d;
+	unsigned char	*s;
+	unsigned char	*pt;
+	size_t			num_c;
 
 	d = (unsigned char *)dst;
 	s = (unsigned char *)src;
-	
-
 	pt = ft_memchr(s, c, len);
 	if (pt == NULL)
 	{

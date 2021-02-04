@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/16 16:47:54 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/25 19:06:56 by jinglee          ###   ########.fr       */
+/*   Created: 2021/02/02 16:53:11 by jinglee           #+#    #+#             */
+/*   Updated: 2021/02/03 08:46:34 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
-char		*ft_strnstr(const char *src, const char *word, size_t ran)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t 	word_len;
-	int 	res;
+	char			*str;
+	unsigned int	i;
 
-	word_len = ft_strlen(word);
-	if (*word  != '\0')
-	{	
-		if (ran == 0)
-			return (NULL);
-		while (1)
-		{
-			res = ft_strncmp(src, word, word_len);
-			if (res == 0)
-				break;
-			else if(*++src == '\0' || --ran < word_len)
-				return (NULL);
-		}
+	if (!s || !f || !(str = strdup(s)))
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		str[i] = f(i, str[i]);
+		i++;
 	}
-	return ((char *)src);
+	return (str);
 }

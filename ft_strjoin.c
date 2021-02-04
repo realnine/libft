@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/16 16:47:54 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/25 19:06:56 by jinglee          ###   ########.fr       */
+/*   Created: 2021/01/25 15:12:27 by jinglee           #+#    #+#             */
+/*   Updated: 2021/01/25 17:32:43 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
-char		*ft_strnstr(const char *src, const char *word, size_t ran)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t 	word_len;
-	int 	res;
+	char	*ptr;
+	size_t	siz;
+	int		i;
+	int		j;
 
-	word_len = ft_strlen(word);
-	if (*word  != '\0')
-	{	
-		if (ran == 0)
-			return (NULL);
-		while (1)
-		{
-			res = ft_strncmp(src, word, word_len);
-			if (res == 0)
-				break;
-			else if(*++src == '\0' || --ran < word_len)
-				return (NULL);
-		}
-	}
-	return ((char *)src);
+	if (!s1 || !s2)
+		return (NULL);
+	siz = strlen(s1) + strlen(s2) + 1;
+	ptr = malloc(siz);
+	if (!ptr)
+		return (NULL);
+	i = -1;
+	while (s1[++i])
+		ptr[i] = s1[i];
+	j = 0;
+	while (s2[j])
+		ptr[i++] = s2[j++];
+	ptr[i] = '\0';
+	return (ptr);
 }
