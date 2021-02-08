@@ -6,11 +6,11 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:12:49 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/12 14:17:37 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/08 16:02:03 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

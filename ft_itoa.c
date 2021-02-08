@@ -6,7 +6,7 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 21:24:48 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/02 11:45:02 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/08 15:38:55 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_itoa(int n)
 	char	*str0;
 
 	decimal = "0123456789";
-	str = malloc(sizeof(char) * ft_scale(n) + 1);
+	str = malloc(sizeof(char) * (ft_scale(n) + 1));
 	if (!str)
 		return (NULL);
 	str0 = str;

@@ -6,11 +6,11 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:43:14 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/12 14:45:13 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/08 16:03:06 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

@@ -6,7 +6,7 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 20:24:01 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/04 11:44:43 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/08 15:51:01 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_recursive(int n, int fd, char *decimal)
 {
-	if (n > 9 || n < -9)
+	if (n / 10 != 0)
 		ft_recursive(n / 10, fd, decimal);
 	if (n >= 0)
 		write(fd, &decimal[n % 10], 1);

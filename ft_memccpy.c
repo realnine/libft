@@ -6,7 +6,7 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 13:04:43 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/04 11:56:16 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/08 15:57:03 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t len)
 {
 	unsigned char	*d;
 	unsigned char	*s;
-	unsigned char	*pt;
-	size_t			num_c;
 
-	d = (unsigned char *)dst;
+	d = dst;
 	s = (unsigned char *)src;
-	pt = ft_memchr(s, c, len);
-	if (pt == NULL)
+	while (len--)
 	{
-		ft_memcpy(d, s, len);
-		return (NULL);
+		if (*s == (unsigned char)c)
+		{
+			*d = *s;
+			return ((void *)++d);
+		}
+		*d++ = *s++;
 	}
-	num_c = (pt - s + 1);
-	ft_memcpy(d, s, num_c);
-	return (d + num_c);
+	return (NULL);
 }

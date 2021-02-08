@@ -6,11 +6,11 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 13:11:47 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/12 14:09:52 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/08 16:02:18 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

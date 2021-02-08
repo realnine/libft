@@ -6,11 +6,11 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:18:15 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/12 14:22:32 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/08 16:02:30 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

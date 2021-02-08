@@ -6,7 +6,7 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 13:33:21 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/30 13:33:25 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/08 14:03:04 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char		**ft_split(char const *s, char c)
 	pas = 0;
 	p = ss;
 	pas = ft_insertnul(p, c, pas);
-	if (!(ptr = calloc((pas + 2), sizeof(char *))))
+	if (!(ptr = calloc((pas + 1), sizeof(char *))))
 		return (NULL);
 	ptr = ft_fillptr(ptr, ss, pas);
 	return (ptr);

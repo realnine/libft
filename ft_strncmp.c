@@ -6,13 +6,13 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 17:48:19 by jinglee           #+#    #+#             */
-/*   Updated: 2021/01/15 15:50:55 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/08 16:06:04 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
-int ft_strncmp(const char *str1, const char *str2, size_t len)
+int	ft_strncmp(const char *str1, const char *str2, size_t len)
 {
 	unsigned char *s1;
 	unsigned char *s2;
