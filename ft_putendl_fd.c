@@ -6,7 +6,7 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 20:11:53 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/08 16:14:08 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/09 15:49:19 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	if (!s)
 		return ;
-	write(fd, s, strlen(s));
+	write(fd, s, ft_strlen(s));
 	write(fd, "\n", 1);
 }

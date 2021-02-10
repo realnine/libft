@@ -6,7 +6,7 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 15:12:27 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/08 11:34:29 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/09 15:54:45 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	siz = strlen(s1) + strlen(s2) + 1;
+	siz = ft_strlen(s1) + ft_strlen(s2) + 1;
 	ptr = malloc(siz);
 	if (!ptr)
 		return (NULL);

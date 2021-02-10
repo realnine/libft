@@ -6,7 +6,7 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 13:33:21 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/08 14:03:04 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/09 15:50:26 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int			ft_insertnul(char *p, char c, int pas)
 	{
 		if (*p != c)
 			pas++;
-		p = strchr(p, c);
+		p = ft_strchr(p, c);
 		if (!p)
 			break ;
 		*p = '\0';
@@ -46,12 +46,12 @@ char		**ft_fillptr(char **ptr, char *ss, int pas)
 	{
 		while (*ss == '\0')
 			ss++;
-		if (!(ptr[i++] = strdup(ss)))
+		if (!(ptr[i++] = ft_strdup(ss)))
 		{
 			ft_mulfree(ptr);
 			return (NULL);
 		}
-		ss += strlen(ss);
+		ss += ft_strlen(ss);
 	}
 	return (ptr);
 }
@@ -63,12 +63,12 @@ char		**ft_split(char const *s, char c)
 	char	*p;
 	int		pas;
 
-	if (!s || !(ss = strdup(s)))
+	if (!s || !(ss = ft_strdup(s)))
 		return (NULL);
 	pas = 0;
 	p = ss;
 	pas = ft_insertnul(p, c, pas);
-	if (!(ptr = calloc((pas + 1), sizeof(char *))))
+	if (!(ptr = ft_calloc((pas + 1), sizeof(char *))))
 		return (NULL);
 	ptr = ft_fillptr(ptr, ss, pas);
 	return (ptr);

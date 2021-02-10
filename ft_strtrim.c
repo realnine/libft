@@ -6,7 +6,7 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:33:14 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/08 16:10:38 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/09 15:58:00 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (NULL);
 	i = 0;
-	while (strchr(set, s1[i]) && i < strlen(s1))
+	while (ft_strchr(set, s1[i]) && i < ft_strlen(s1))
 		i++;
-	s1_len = strlen(s1);
-	while (strchr(set, s1[s1_len - 1]) && s1_len > i)
+	s1_len = ft_strlen(s1);
+	while (ft_strchr(set, s1[s1_len - 1]) && s1_len > i)
 		s1_len--;
 	ptr = malloc(s1_len - i + 1);
 	if (!ptr)
