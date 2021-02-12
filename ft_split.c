@@ -6,70 +6,81 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 13:33:21 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/09 15:50:26 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/11 22:55:53 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_mulfree(char **pt)
+static void	ft_mulfree(char **ptr)
 {
 	int i;
 
 	i = 0;
-	while (pt[i])
-		free(pt[i++]);
-	free(pt);
+	while (ptr[i])
+		free(ptr[i++]);
+	free(ptr);
 }
 
-int			ft_insertnul(char *p, char c, int pas)
+static int	ft_parent_siz(char const *s, char c)
 {
-	while (*p)
-	{
-		if (*p != c)
-			pas++;
-		p = ft_strchr(p, c);
-		if (!p)
-			break ;
-		*p = '\0';
-		p++;
-	}
-	return (pas);
-}
+	int cnt;
 
-char		**ft_fillptr(char **ptr, char *ss, int pas)
-{
-	int i;
-
-	i = 0;
-	while (pas-- > 0)
+	cnt = 0;
+	if (!s)
+		return (0);
+	while (*s)
 	{
-		while (*ss == '\0')
-			ss++;
-		if (!(ptr[i++] = ft_strdup(ss)))
+		while (*s == c && *s)
+			s++;
+		if (*s != c && *s)
 		{
-			ft_mulfree(ptr);
-			return (NULL);
+			cnt++;
+			while (*s != c && *s)
+				s++;
 		}
-		ss += ft_strlen(ss);
 	}
-	return (ptr);
+	return (cnt);
+}
+
+static int	ft_child_siz(char const *s, char c)
+{
+	int cnt;
+
+	cnt = 0;
+	if (!s)
+		return (0);
+	while (*s != c && *s)
+	{
+		cnt++;
+		s++;
+	}
+	return (cnt);
 }
 
 char		**ft_split(char const *s, char c)
 {
-	char	**ptr;
-	char	*ss;
-	char	*p;
-	int		pas;
+	char	**mul_ptr;
+	int		parent_siz;
+	int		child_siz;
+	int		i;
 
-	if (!s || !(ss = ft_strdup(s)))
+	parent_siz = ft_parent_siz(s, c);
+	if (!s || !(mul_ptr = ft_calloc(parent_siz + 1, sizeof(char *))))
 		return (NULL);
-	pas = 0;
-	p = ss;
-	pas = ft_insertnul(p, c, pas);
-	if (!(ptr = ft_calloc((pas + 1), sizeof(char *))))
-		return (NULL);
-	ptr = ft_fillptr(ptr, ss, pas);
-	return (ptr);
+	i = 0;
+	while (i < parent_siz)
+	{
+		while (*s == c && *s)
+			s++;
+		child_siz = ft_child_siz(s, c);
+		if (!(mul_ptr[i] = malloc(child_siz + 1)))
+		{
+			ft_mulfree(mul_ptr);
+			return (NULL);
+		}
+		ft_strlcpy(mul_ptr[i++], s, child_siz + 1);
+		s += child_siz;
+	}
+	return (mul_ptr);
 }
