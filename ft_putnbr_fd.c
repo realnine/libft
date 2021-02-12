@@ -6,13 +6,13 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 20:24:01 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/08 15:51:01 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/12 15:44:04 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_recursive(int n, int fd, char *decimal)
+static void	ft_recursive(int n, int fd, char *decimal)
 {
 	if (n / 10 != 0)
 		ft_recursive(n / 10, fd, decimal);
@@ -22,7 +22,7 @@ void	ft_recursive(int n, int fd, char *decimal)
 		write(fd, &decimal[-(n % 10)], 1);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void		ft_putnbr_fd(int n, int fd)
 {
 	char *decimal;
 

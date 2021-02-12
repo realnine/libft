@@ -6,13 +6,13 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 21:24:48 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/08 15:38:55 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/12 15:42:04 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_scale(int n)
+static size_t	ft_scale(int n)
 {
 	size_t c;
 
@@ -27,7 +27,7 @@ size_t	ft_scale(int n)
 	return (c);
 }
 
-char	*ft_rec(int n, char *str, char *decimal)
+static char		*ft_rec(int n, char *str, char *decimal)
 {
 	if (n / 10 != 0)
 		str = ft_rec(n / 10, str, decimal);
@@ -38,7 +38,7 @@ char	*ft_rec(int n, char *str, char *decimal)
 	return (++str);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*str;
 	char	*decimal;

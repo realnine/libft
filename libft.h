@@ -6,7 +6,7 @@
 /*   By: jinglee <jinglee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:19:47 by jinglee           #+#    #+#             */
-/*   Updated: 2021/02/10 15:14:24 by jinglee          ###   ########.fr       */
+/*   Updated: 2021/02/12 15:29:58 by jinglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t len);
 void	*ft_memchr(void *src, int c, size_t len);
 void	*ft_memccpy(void *dst, const void *src, int c, size_t len);
 void	*ft_memmove(void *dst, const void *src, size_t len);
-int		ft_memcmp(const void *dst, const void *src, size_t len);
+int		ft_memcmp(const void *ptr1, const void *ptr2, size_t len);
 void	ft_bzero(void *str, size_t len);
 size_t	ft_strlen(const char *str);
 int		ft_isalpha(int c);
@@ -37,12 +37,12 @@ int		ft_tolower(int c);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 int		ft_strncmp(const char *str1, const char *str2, size_t len);
-size_t	ft_strlcpy(char *dst, const char *src, size_t len);
+size_t	ft_strlcpy(char *dst, const char *src, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t len);
 char	*ft_strnstr(const char *src, const char *word, size_t range);
 int		ft_atoi(const char *str);
-void	*ft_calloc(size_t ctn, size_t siz);
-char	*ft_strdup(const char *s1);
+void	*ft_calloc(size_t n, size_t sizof);
+char	*ft_strdup(const char *str);
 char	*ft_substr(char const *src, unsigned int satrt, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
