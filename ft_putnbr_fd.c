@@ -22,9 +22,9 @@ static void	ft_recursive(int n, int fd, char *decimal)
 		write(fd, &decimal[-(n % 10)], 1);
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char *decimal;
+	char	*decimal;
 
 	decimal = "0123456789";
 	if (n < 0)

@@ -14,7 +14,7 @@
 
 static size_t	ft_scale(int n)
 {
-	size_t c;
+	size_t	c;
 
 	c = 1;
 	if (n < 0)
@@ -27,7 +27,7 @@ static size_t	ft_scale(int n)
 	return (c);
 }
 
-static char		*ft_rec(int n, char *str, char *decimal)
+static char	*ft_rec(int n, char *str, char *decimal)
 {
 	if (n / 10 != 0)
 		str = ft_rec(n / 10, str, decimal);
@@ -38,7 +38,7 @@ static char		*ft_rec(int n, char *str, char *decimal)
 	return (++str);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	char	*decimal;

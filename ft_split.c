@@ -14,7 +14,7 @@
 
 static void	ft_mulfree(char **ptr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (ptr[i])
@@ -24,7 +24,7 @@ static void	ft_mulfree(char **ptr)
 
 static int	ft_parent_siz(char const *s, char c)
 {
-	int cnt;
+	int	cnt;
 
 	cnt = 0;
 	if (!s)
@@ -45,7 +45,7 @@ static int	ft_parent_siz(char const *s, char c)
 
 static int	ft_child_siz(char const *s, char c)
 {
-	int cnt;
+	int	cnt;
 
 	cnt = 0;
 	if (!s)
@@ -58,7 +58,7 @@ static int	ft_child_siz(char const *s, char c)
 	return (cnt);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**mul_ptr;
 	int		parent_siz;
@@ -66,7 +66,8 @@ char		**ft_split(char const *s, char c)
 	int		i;
 
 	parent_siz = ft_parent_siz(s, c);
-	if (!s || !(mul_ptr = ft_calloc(parent_siz + 1, sizeof(char *))))
+	mul_ptr = ft_calloc(parent_siz + 1, sizeof(char *));
+	if (!s || !mul_ptr)
 		return (NULL);
 	i = 0;
 	while (i < parent_siz)
@@ -74,7 +75,8 @@ char		**ft_split(char const *s, char c)
 		while (*s == c && *s)
 			s++;
 		child_siz = ft_child_siz(s, c);
-		if (!(mul_ptr[i] = malloc(child_siz + 1)))
+		mul_ptr[i] = malloc(child_siz + 1);
+		if (!mul_ptr[i])
 		{
 			ft_mulfree(mul_ptr);
 			return (NULL);
