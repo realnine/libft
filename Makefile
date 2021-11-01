@@ -10,10 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-NAME = libft.a
-RM = rm -f
+CC		= gcc
+CFLAGS	= -Wall -Wextra -Werror
+NAME	= libft.a
 
 SRCS = ft_memset.c\
 	   ft_memcpy.c\
@@ -56,11 +55,12 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
+	
 clean :
-	$(RM) $(OBJS)
+	rm $(OBJS)
 
 fclean : clean
-	$(RM) $(NAME)
+	rm $(NAME)
 
 re : fclean $(NAME)
 
