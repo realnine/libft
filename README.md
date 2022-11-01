@@ -1,7 +1,7 @@
 # Subject 소개
 
-* [Subject](https://github.com/bigpel66/42-cursus/blob/main/circle-00/circle00%20-%20Libft.pdf)
-* [Guide Link](https://bigpel66.oopy.io/library/42/inner-circle/1)
+* [Subject PDF](https://github.com/realnine/libft/blob/main/subject.pdf)
+* [Subject 설명](https://bigpel66.oopy.io/library/42/inner-circle/1)
 
 
 
