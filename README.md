@@ -1,3 +1,5 @@
+코드 하나하나 직접 짜고 모두 이해했으며 동료 평가 3명에서 설명했으며 통과받은 파일입니다
+
 # Subject 소개
 
 * [Subject PDF](https://github.com/realnine/libft/blob/main/subject.pdf)
